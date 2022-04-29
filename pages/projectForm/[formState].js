@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import Card from '../../components/Card';
 import FormSubmitted from '../../components/FormSubmitted';
 
-function formState() {
+function FormState() {
     const router = useRouter();
 
     let myMessage = 'submitted successfully';
@@ -23,4 +23,4 @@ function formState() {
   )
 }
 
-export default formState
+export default FormState

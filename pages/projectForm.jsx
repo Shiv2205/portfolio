@@ -1,10 +1,9 @@
 import React from 'react';
-import { validateInput } from '../api/methods/validation';
-import { addProject } from '../api/methods/db_methods';
+import { validateInput } from './api/methods/validation';
+import { addProject } from './api/methods/db_methods';
 import { useRouter } from 'next/router';
 
-
-function projectForm() {
+function ProjectForm() {
   const router = useRouter();
 
   //TODO: Method will handle validation
@@ -17,11 +16,15 @@ function projectForm() {
     
   }
 
+  const redirect = (path) => {
+    router.push('/projectForm/' + path);
+  }
+
   const handleSubmit = async (event) => {
       event.preventDefault();
       addProject(event).then((smth) => {
-        router.push('/projectForm/submitted');
-      }).catch((smth) => {router.push('/projectForm/failed');});
+        redirect('submitted');
+      }).catch((smth) => {redirect('failed');});
   }
 
   return (
@@ -58,4 +61,4 @@ function projectForm() {
   )
 }
 
-export default projectForm
+export default ProjectForm
