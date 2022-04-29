@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "eslint-plugin-react": "^7.28.0",
     "firebase": "^9.6.11",
     "fs": "^0.0.1-security",
     "mongodb": "^4.5.0",
