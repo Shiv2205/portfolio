@@ -42,7 +42,7 @@ function About(props) {
 }
 
 
-export async function getStaticProps(){
+export async function getServerSideProps(){
   const dbRef = ref(db, 'projects/');
   let temp;
   const data =  onValue(dbRef, (snapshot) => {
@@ -50,13 +50,13 @@ export async function getStaticProps(){
         console.log(data, "index");
         temp = data;
     });
-    
+
     return {
       props:{
         result: JSON.stringify(temp) || null
-      },
-      revalidate:1
+      }
     };
+
 }
 
 export default About
