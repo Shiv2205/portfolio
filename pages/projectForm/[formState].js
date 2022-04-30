@@ -1,5 +1,5 @@
 //submitted or failed
-import react from 'react';
+import React from 'react';
 import { useRouter } from 'next/router';
 import Card from '../../components/Card';
 import FormSubmitted from '../../components/FormSubmitted';

@@ -1,12 +1,15 @@
 import '../styles/globals.css';
 import Navbar from '../components/Navbar';
+import { ProviderWrapper } from './store/app_context';
 
 function MyApp({ Component, pageProps }) {
   return (
-    <div className='bg-blue-500'>
-      <Navbar/>
-      <Component {...pageProps}/>
-    </div>
+    <ProviderWrapper>
+      <div className='bg-blue-500'>
+          <Navbar/>
+          <Component {...pageProps}/>
+      </div>
+    </ProviderWrapper>
       );
   
 }
