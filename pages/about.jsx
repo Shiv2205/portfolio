@@ -11,14 +11,26 @@ import { useRouter } from 'next/router'
 
 function About(props) {
 
+  // const [loading, setLoading] = useState(true);
+  //const router = useRouter();
+
+  // useEffect(() => {
+  //   if(props !== null)
+  //     setLoading(false);
+  // }, [props])
+
+
+
   const loadProject = () => {
     //const num = projects.length;//[1, 2, 3, 4, 5, 6]; //counts number of cards
-    const data = JSON.parse(props.result);
-   
-    if(data !== null)
+    //console.log(props, "loadProj");
+    
+    //console.log(data, "loadProj");
+    if(props.result !== null)
     {
-      const result = Object.entries(data);
-      console.log(result, "index");
+      //const data = JSON.parse(props);
+      const result = Object.entries(props.result);
+      //console.log(result, "index");
 
       return result.map((value, number) => { return <ProjectCard key={"project" + number} props={value[1]} />; });
     }
@@ -35,11 +47,23 @@ function About(props) {
       </div>
         
       <div id="cards" className="grid grid-cols-3">
-        {loadProject()}
+        {/* {loading ? <Image src={spinner} width='500px' height='300px' alt=''/> : */loadProject()}
       </div>
     </>
   )
 }
+
+// About.getInitialProps = async (ctx) => {
+//   const dbRef = ref(db, 'projects/');
+//   let temp;
+//   const data =  onValue(dbRef, (snapshot) => {
+//         const data = snapshot.val();
+//         console.log(data, "index");
+//         temp = data;
+//     });
+
+//     return { props: JSON.stringify(temp) };
+// }
 
 
 export async function getServerSideProps(){
@@ -53,7 +77,7 @@ export async function getServerSideProps(){
 
     return {
       props:{
-        result: JSON.stringify(temp) || null
+        result: temp || null
       }
     };
 
