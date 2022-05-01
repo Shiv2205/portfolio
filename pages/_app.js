@@ -1,6 +1,6 @@
 import '../styles/globals.css';
 import Navbar from '../components/Navbar';
-import { ProviderWrapper } from './store/app_context';
+import { ProviderWrapper } from './api/store/app_context';
 
 function MyApp({ Component, pageProps }) {
   return (

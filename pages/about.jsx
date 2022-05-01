@@ -6,7 +6,7 @@ import { ref, onValue } from 'firebase/database';
 import { db } from "./api/methods/firebase_obj";
 import spinner from "./api/assets/spinner.gif";
 import Image from "next/image";
-import AppContext from './store/app_context';
+import AppContext from './api/store/app_context';
 
 function About(props) {
   const ctx = useContext(AppContext);

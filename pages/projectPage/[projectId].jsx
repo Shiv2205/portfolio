@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import AppContext from '../store/app_context';
+import AppContext from '../api/store/app_context';
 import { useRouter } from 'next/router';
 import spinner from "../api/assets/spinner.gif";
 import Image from 'next/image';
