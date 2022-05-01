@@ -19,13 +19,8 @@ function About(props) {
       if(ctx.project)
       {
         const result = Object.entries(ctx.project);
-        console.log(result, "context");
         return result.map((value, number) => { return <ProjectCard key={"project" + number} props={value[1]} />; });
       }
-    }
-    else
-    {
-      return <Image src={spinner} width='500px' height='300px' alt=''/>;
     }
   }
 
@@ -50,6 +45,16 @@ export async function getServerSideProps(){
         console.log(data, "index");
         temp = data;
     });
+
+    if(!temp)
+    {
+      return {
+        redirect: {
+          destination: '/about',
+          permanent: true,
+        },
+      }
+    }
 
     return {
       props:{

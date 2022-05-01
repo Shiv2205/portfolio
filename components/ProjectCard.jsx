@@ -6,7 +6,7 @@ function ProjectCard({ id, props }) {
   const router = useRouter();
 
   const redirectToProject = () => {
-
+    router.push("/projectPage/" + props.title);
   }
 
   return (
